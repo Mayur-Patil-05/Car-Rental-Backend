@@ -1,5 +1,6 @@
 package com.mayur.CarRentalSystem.Exceptions.ExceptionAdvice;
 
+import com.mayur.CarRentalSystem.Exceptions.BookingNotFoundException;
 import com.mayur.CarRentalSystem.Exceptions.CarNotFoundException;
 import com.mayur.CarRentalSystem.Exceptions.CustomerNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(CarNotFoundException.class)
     public ResponseEntity<String> handle(CarNotFoundException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(BookingNotFoundException.class)
+    public ResponseEntity<String> handle(BookingNotFoundException e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 }
