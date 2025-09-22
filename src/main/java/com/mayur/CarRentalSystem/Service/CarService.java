@@ -26,7 +26,15 @@ public class CarService {
 
     public List<CarResponseDto> getAllCars() {
         List<Car> cars = carRepository.findAll();
-        if (cars.isEmpty()){
+        if (cars.isEmpty()) {
+            throw new CarNotFoundException("Cars not available");
+        }
+        return cars.stream().map(car -> modelMapper.map(car, CarResponseDto.class)).toList();
+    }
+
+    public List<CarResponseDto> getAvailableCars() {
+        List<Car> cars = carRepository.findByAvailableTrue();
+        if (cars.isEmpty()) {
             throw new CarNotFoundException("Cars not available");
         }
         return cars.stream().map(car -> modelMapper.map(car, CarResponseDto.class)).toList();

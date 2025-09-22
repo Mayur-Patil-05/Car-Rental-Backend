@@ -27,6 +27,12 @@ public class CarController {
         return carService.getAllCars();
     }
 
+    @GetMapping("/available")
+    @ResponseStatus(HttpStatus.OK)
+    public List<CarResponseDto> getAvailableCars() {
+        return carService.getAvailableCars();
+    }
+
     @GetMapping("/{carId}")
     @ResponseStatus(HttpStatus.OK)
     public CarResponseDto getCarById(@PathVariable Long carId) {
