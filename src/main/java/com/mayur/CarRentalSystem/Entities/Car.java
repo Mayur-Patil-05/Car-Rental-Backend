@@ -1,5 +1,7 @@
 package com.mayur.CarRentalSystem.Entities;
 
+import com.mayur.CarRentalSystem.Entities.Enums.CarCategory;
+import com.mayur.CarRentalSystem.Entities.Enums.FuelType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +23,11 @@ public class Car {
     private String model;
     private Integer year;
     private Double dailyRate;
+    private Long seat;
+    @Enumerated(EnumType.STRING)
+    private CarCategory category;
+    @Enumerated(EnumType.STRING)
+    private FuelType fuelType;
     private boolean available;
 
     @OneToMany(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

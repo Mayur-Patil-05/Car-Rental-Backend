@@ -48,10 +48,15 @@ public class CarService {
             car.setModel(carDto.getModel());
             car.setYear(carDto.getYear());
             car.setDailyRate(carDto.getDailyRate());
+            car.setSeat(carDto.getSeat());
+            car.setCategory(carDto.getCategory());
+            car.setFuelType(carDto.getFuelType());
             car.setAvailable(carDto.isAvailable());
         }
+
         return "Car updated successfully";
     }
+
 
     public void deleteCar(Long carId) {
         if (!carRepository.existsById(carId)) {

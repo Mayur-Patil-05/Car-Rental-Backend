@@ -1,5 +1,7 @@
 package com.mayur.CarRentalSystem.DTOs;
 
+import com.mayur.CarRentalSystem.Entities.Enums.CarCategory;
+import com.mayur.CarRentalSystem.Entities.Enums.FuelType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,9 +14,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CarResponseDto {
+    private Long carId;
     private String brand;
     private String model;
     private Integer year;
     private Double dailyRate;
+    private Long seat;
+    private CarCategory category;
+    private FuelType fuelType;
     private boolean available;
 }
