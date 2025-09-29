@@ -9,6 +9,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 
@@ -17,9 +18,11 @@ import java.util.List;
 public class CustomerService {
     private final CustomerRepository customerRepository;
     private final ModelMapper modelMapper;
+    private final PasswordEncoder passwordEncoder;
 
     public String createCustomer(CustomerDto customerDto) {
         Customer customer = modelMapper.map(customerDto, Customer.class);
+        customer.setPassword(passwordEncoder.encode(customerDto.getPassword()));
         Customer savedCustomer = customerRepository.save(customer);
         return "Customer created successfully";
     }

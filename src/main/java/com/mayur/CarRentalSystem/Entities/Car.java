@@ -21,6 +21,7 @@ public class Car {
     private Long carId;
     private String brand;
     private String model;
+    
     private Integer year;
     private Double dailyRate;
     private Long seat;

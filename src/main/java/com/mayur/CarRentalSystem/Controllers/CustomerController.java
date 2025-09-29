@@ -15,11 +15,11 @@ import java.util.List;
 public class CustomerController {
     private final CustomerService customerService;
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public String createCustomer(@RequestBody CustomerDto customerDto) {
-        return customerService.createCustomer(customerDto);
-    }
+//    @PostMapping
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public String createCustomer(@RequestBody CustomerDto customerDto) {
+//        return customerService.createCustomer(customerDto);
+//    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
